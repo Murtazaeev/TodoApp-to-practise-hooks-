@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
-import { AppBar, Toolbar, Typography } from '@material-ui/core';
-import Paper from '@material-ui/core/Paper';
 import TodoList from './TodoList';
 import TodoForm from './TodoForm';
+import Typography from '@material-ui/core/Typography';
+import Paper from '@material-ui/core/Paper';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Grid from '@material-ui/core/Grid';
 
 function TodoApp() {
 	const initialTodos = [
@@ -29,8 +32,12 @@ function TodoApp() {
 					<Typography color="inherit">Todos with hooks</Typography>
 				</Toolbar>
 			</AppBar>
-			<TodoForm addTodo={addTodo} />
-			<TodoList todos={todos} />
+			<Grid container justifyContent="center" style={{ marginTop: '1rem' }}>
+				<Grid item xs={11} md={8} lg={4}>
+					<TodoForm addTodo={addTodo} />
+					<TodoList todos={todos} />
+				</Grid>
+			</Grid>
 		</Paper>
 	);
 }
