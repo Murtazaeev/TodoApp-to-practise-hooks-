@@ -29,7 +29,8 @@ function TodoApp() {
 		setTodos(updatedTodos);
 	};
 	const editTodo = (todoId, newTask) => {
-		const updateTodos = todos.map((todo) => (todo.id === todoId ? { ...todo, task: newTask } : todo));
+		const updatedTodos = todos.map((todo) => (todo.id === todoId ? { ...todo, task: newTask } : todo));
+		setTodos(updatedTodos);
 	};
 	return (
 		<Paper
