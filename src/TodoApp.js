@@ -9,7 +9,8 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Grid from '@material-ui/core/Grid';
 
 function TodoApp() {
-	const initialTodos = JSON.parse(window.localStorage.getItem('todos') || '[]');
+	// const [ todos ] = useLocalStorage('todos', []);
+	const initialTodos = [ { id: 1, task: 'pet a dog', completed: false } ];
 	const { todos, addTodo, removeTodo, toggleTodo, editTodo } = useTodoState(initialTodos);
 	// const initialTodos = [
 	// 	{ id: 1, task: 'Pray Fajr', completed: true },
@@ -17,12 +18,7 @@ function TodoApp() {
 	// 	{ id: 3, task: 'workout', completed: false }
 	// ];
 
-	useEffect(
-		() => {
-			window.localStorage.setItem('todos', JSON.stringify(todos));
-		},
-		[ todos ]
-	);
+	//
 
 	return (
 		<Paper
